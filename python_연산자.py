@@ -8,10 +8,12 @@ Original file is located at
 """
 
 PI = 3.14
-Print(5.5 * 5.5 * PI)
+area = 5.5 * 5.5 * PI
+print(area)
 
 A = 10 * 4 * (1/2)
 B = 9 * 5 * (1/2)
 print (A == B)
 
-(92 * 4) - 95 - 88 - 90
+sci = (92 * 4) - 95 - 88 - 90
+print(sci)
