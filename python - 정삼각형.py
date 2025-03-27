@@ -11,7 +11,7 @@ while True:
                 stars = ''
                 for j in range(star_distribution[i]):
                     if count < n:
-                        stars += '*'
+                        stars += str(count + 1)
                         count += 1
                     else:
                         stars += ' '
