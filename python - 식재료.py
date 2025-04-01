@@ -10,7 +10,7 @@ def check_prime_num(x):
 
         for i in range(2, x):
             if x % i == 0:
-                return FALSE
+                return False
 
         return True
 
