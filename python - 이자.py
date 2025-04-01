@@ -1,9 +1,9 @@
 def interest_year(p, r, n):
-  return p * (1+r) ** n
+  return p * (1 + r) ** n
 
 p = 30000000
 r = 0.051
 n = 5
 result = interest_year(p, r, n)
 
-print('원금: {0}, 이자: {1}'.format(p, result-p))
+print('원금: {0}, 이자: {1}'.format(p, result - p))
