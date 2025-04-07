@@ -12,10 +12,10 @@ int main()
     srand(time(NULL));
     
     for (int i = 0; i < LOTTO_COUNT; ) {
-        int num = (rand() % MAX_NUM) + 1; //1~45 사이의 난수 생성
+        int num = (rand() % MAX_NUM) + 1; 
         if (!used[num]) { //중복이 없을 경우에만 배열에 추가
             numbers[i++] = num;
-            used[num] = 1; //해당 숫자 사용 표시
+            used[num] = 1;
         }
     }
     
