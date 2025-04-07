@@ -7,11 +7,10 @@
 
 int main()
 {
-    int numbers[LOTTO_COUNT] = {0}; //로또 번호를 저장할 배열
-    int used[MAX_NUM + 1] = {0}; //사용된 숫자를 체크하는 배열
-    srand(time(NULL)); //난수 생성을 위한 시드 설정
+    int numbers[LOTTO_COUNT] = {0}; 
+    int used[MAX_NUM + 1] = {0}; 
+    srand(time(NULL));
     
-    //중복 없이 6개의 난수를 생성
     for (int i = 0; i < LOTTO_COUNT; ) {
         int num = (rand() % MAX_NUM) + 1; //1~45 사이의 난수 생성
         if (!used[num]) { //중복이 없을 경우에만 배열에 추가
@@ -31,7 +30,6 @@ int main()
         }
     }
     
-    //정렬된 로또 번호 출력
     for (int i = 0; i < LOTTO_COUNT; i++) {
         printf("%d ", numbers[i]);
     }
