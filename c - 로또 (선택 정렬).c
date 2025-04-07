@@ -11,7 +11,6 @@ int main()
     int used[MAX_NUM + 1] = {0};
     srand(time(NULL));
 
-    // 중복 없이 로또 번호 생성
     for (int i = 0; i < LOTTO_COUNT; ) {
         int num = (rand() % MAX_NUM) + 1;
         if (!used[num]) {
