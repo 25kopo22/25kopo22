@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// 각 자리 숫자의 합 계산 함수
 int sumdigit(int num) {
     int sum = 0;
     while (num > 0) {
@@ -13,21 +12,18 @@ int sumdigit(int num) {
 int main() {
     int num;
     
-    // 사용자 입력 받기
     printf("0부터 999 사이의 숫자를 입력하세요: ");
     if (scanf("%d", &num) != 1 || num < 0 || num > 999) {
         printf("올바른 숫자를 입력하세요.\n");
         return 1;
     }
     
-    // 첫 번째 자리와 마지막 자리 숫자 구하기
     int first = num;
     while (first >= 10) {
         first /= 10;
     }
     int last = num % 10;
     
-    // 조건 확인
     if ((num % 3 == 0 && num % 2 == 1) ||  // 3의 배수이면서 홀수
         (sumdigit(num) % 7 == 0) ||    // 각 자리 숫자의 합이 7의 배수
         (first > last)) {       // 첫 번째 자리 숫자가 마지막 자리 숫자보다 큼
