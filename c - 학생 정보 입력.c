@@ -33,7 +33,6 @@ void inputOneMember(struct group *p, int *count) {
         }
         else {
             printf("잘못된 나이입니다. 다시 입력해주세요.\n");
-            while (getchar() != '\n');
         }
     }
 
@@ -66,10 +65,10 @@ int main() {
     printf("초기 사용자 정보:\n");
     printMembers(p, count);
     printf("\n");
-
+    
     while (TRUE) {
         inputOneMember(p, &count);
     }
-
+    
     return 0;
 }
