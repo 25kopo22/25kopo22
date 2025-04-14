@@ -10,29 +10,47 @@ struct group {
     char hobby[30];
 };
 
-void printMembers(struct group *p, int count) {
+struct group initialMembers[] = {
+    {"hong", 30, 'M', "soccer"},
+    {"kim", 25, 'F', "music"},
+    {"park", 20, 'M', "movie"}
+};
+int initialCount = sizeof(initialMembers) / sizeof(initialMembers[0]);
+
+struct group people[100];
+struct group *p = people;
+int count = 0;
+
+void initializePeopleArray() {
+    for (int i = 0; i < initialCount; i++) {
+        people[i] = initialMembers[i];
+    }
+    count = initialCount;
+}
+
+void printMembers(struct group *ptr, int currentCount) {
     printf("\n현재까지 입력된 사용자 정보:\n");
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < currentCount; i++) {
         printf("%d. %s %d %c %s\n",
-            i + 1, p[i].name, p[i].age, p[i].sex, p[i].hobby);
+               i + 1, ptr[i].name, ptr[i].age, ptr[i].sex, ptr[i].hobby);
     }
 }
 
-void inputOneMember(struct group *p, int *count) {
+void inputOneMember(struct group *ptr, int *currentCount) {
     char tempSex[10];
 
-    printf("\n[%d번째 사용자]\n", *count + 1);
+    printf("\n[%d번째 사용자]\n", *currentCount + 1);
 
     printf("이름: ");
-    scanf("%s", p[*count].name);
+    scanf("%s", ptr[*currentCount].name);
 
     while (TRUE) {
         printf("나이: ");
-        if (scanf("%d", &p[*count].age) == 1 && p[*count].age > 0 && p[*count].age <= 100) {
+        if (scanf("%d", &ptr[*currentCount].age) == 1 && ptr[*currentCount].age > 0 && ptr[*currentCount].age <= 100) {
             break;
-        }
-        else {
+        } else {
             printf("잘못된 나이입니다. 다시 입력해주세요.\n");
+            while (getchar() != '\n');
         }
     }
 
@@ -40,28 +58,24 @@ void inputOneMember(struct group *p, int *count) {
         printf("성별 (M/F): ");
         scanf("%s", tempSex);
         if (strlen(tempSex) == 1 && (tempSex[0] == 'M' || tempSex[0] == 'F')) {
-            p[*count].sex = tempSex[0];
+            ptr[*currentCount].sex = tempSex[0];
             break;
         }
         printf("잘못된 성별입니다. 다시 입력해주세요.\n");
     }
 
     printf("취미: ");
-    scanf("%s", p[*count].hobby);
+    scanf("%s", ptr[*currentCount].hobby);
 
-    (*count)++;
-    printMembers(p, *count);
+    (*currentCount)++;
+    printMembers(ptr, *currentCount);
 }
 
 int main() {
-    struct group people[100];
-    struct group *p = people;
-    int count = 3;
-    strcpy(p[0].name, "hong"); p[0].age = 30; p[0].sex = 'M'; strcpy(p[0].hobby, "soccer");
-    strcpy(p[1].name, "kim");  p[1].age = 25; p[1].sex = 'F'; strcpy(p[1].hobby, "music");
-    strcpy(p[2].name, "park"); p[2].age = 20; p[2].sex = 'M'; strcpy(p[2].hobby, "movie");
-    printf("초기 사용자 정보:\n"); 
-    printMembers(p, count); 
-    while (TRUE) { inputOneMember(p, &count);
-    } return 0;
+    initializePeopleArray();
+    printMembers(p, count);
+    while (TRUE) {
+        inputOneMember(p, &count);
+    }
+    return 0;
 }
