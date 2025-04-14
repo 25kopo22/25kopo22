@@ -62,6 +62,6 @@ int main() {
     strcpy(p[2].name, "park"); p[2].age = 20; p[2].sex = 'M'; strcpy(p[2].hobby, "movie");
     printf("초기 사용자 정보:\n"); 
     printMembers(p, count); 
-    while (TRUE) inputOneMember(p, &count);
-    return 0;
+    while (TRUE) { inputOneMember(p, &count);
+    } return 0;
 }
