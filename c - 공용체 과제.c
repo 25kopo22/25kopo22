@@ -13,16 +13,16 @@ int main() {
     char charInput;
     int choice;
 
-    printf("정수 값을 입력하세요: ");
+    printf("정수 값: ");
     scanf("%d", &intInput);
 
-    printf("실수 값을 입력하세요: ");
+    printf("실수 값: ");
     scanf("%f", &floatInput);
 
-    printf("문자 값을 입력하세요: ");
+    printf("문자 값: ");
     scanf(" %c", &charInput); 
 
-    printf("\n저장할 데이터 타입을 선택하세요 (1: int, 2: float, 3: char): ");
+    printf("\n저장할 데이터 타입 (1: int, 2: float, 3: char): ");
     scanf("%d", &choice);
 
     switch (choice) {
@@ -49,7 +49,7 @@ int main() {
             return 1;
     }
 
-    printf("\n--- 값 및 주소 확인 ---\n");
+    printf("\n값 및 주소 확인\n");
     printf("공용체 전체 주소: %p\n", &myData);
     printf("정수 멤버 주소: %p (값: %d)\n", &myData.intVal, myData.intVal);
     printf("실수 멤버 주소: %p (값: %f)\n", &myData.floatVal, myData.floatVal);
