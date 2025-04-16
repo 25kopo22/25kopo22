@@ -5,14 +5,14 @@
 enum Week { SUN, MON, TUE, WED, THU, FRI, SAT };
 enum Month { JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC };
 
-int isLeapYear(int year) {
+int LeapYear(int year) {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
 int daysInMonth(enum Month month, int year) {
     switch (month) {
         case APR: case JUN: case SEP: case NOV: return 30;
-        case FEB: return isLeapYear(year) ? 29 : 28;
+        case FEB: return LeapYear(year) ? 29 : 28;
         default: return 31;
     }
 }
@@ -23,7 +23,7 @@ void printCalendar(int year, enum Month month) {
 
     int totalDays = 0;
     for (int y = 2025; y < year; y++) {
-        totalDays += isLeapYear(y) ? 366 : 365;
+        totalDays += LeapYear(y) ? 366 : 365;
     }
     for (enum Month m = JAN; m < month; m++) {
         totalDays += daysInMonth(m, year);
